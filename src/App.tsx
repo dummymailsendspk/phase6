@@ -8,7 +8,7 @@ const CELEBRANT_NAME = 'Jayapriya';
 
 function App() {
   const [currentTime, setCurrentTime] = useState(new Date());
-  const birthdayDate = new Date('2026-07-21T16:00:00');
+  const birthdayDate = new Date('2026-07-21T00:00:00');
 
   const [showCelebration, setShowCelebration] = useState(
     new Date() >= birthdayDate
