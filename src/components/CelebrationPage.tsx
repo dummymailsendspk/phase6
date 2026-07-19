@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import LetterModal from './LetterModal';
 import FloatingBottles from './FloatingBottles';
+import GiftBoxReveal from './finale/GiftBoxReveal';
 import SecretDashboard from './dashboard/SecretDashboard';
 import SpecialMemoriesPage from './memories/SpecialMemoriesPage';
 import { onDuckMusic } from '../lib/musicBus';
@@ -18,6 +19,8 @@ interface FloatingHeart {
   left: number;
 }
 
+const SECRET_MESSAGE =
+  "You found the secret balloon! 🎈 Here's an extra one just for you: no matter how far apart we are, you're one of the best people I know. Never change. 🐐💛";
 
 const NORMAL_VOLUME = 1;
 const DUCKED_VOLUME = 0.12;
@@ -27,8 +30,11 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ currentTime, birthday
   const audioRef = useRef<HTMLAudioElement>(null);
   const [showMemories, setShowMemories] = useState(false);
   const [showLetter, setShowLetter] = useState(false);
+  const [showSecret, setShowSecret] = useState(false);
   const [showDashboard, setShowDashboard] = useState(false);
+  const [wishCount, setWishCount] = useState(0);
   const [hearts, setHearts] = useState<FloatingHeart[]>([]);
+  const heartIdRef = useRef(0);
 
   const timeDiff = currentTime.getTime() - birthdayDate.getTime();
   const hours = Math.floor(timeDiff / (1000 * 60 * 60));
@@ -54,7 +60,19 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ currentTime, birthday
   const openLetter = () => setShowLetter(true);
   const closeLetter = () => setShowLetter(false);
 
-  
+  const openSecret = () => setShowSecret(true);
+  const closeSecret = () => setShowSecret(false);
+
+  const makeAWish = () => {
+    setWishCount((c) => c + 1);
+    const id = heartIdRef.current++;
+    const left = 10 + Math.random() * 80;
+    setHearts((prev) => [...prev, { id, left }]);
+    setTimeout(() => {
+      setHearts((prev) => prev.filter((heart) => heart.id !== id));
+    }, 2200);
+  };
+
   useEffect(() => {
     // Auto-play music when celebration starts (browsers may still block this)
     if (audioRef.current) {
@@ -107,6 +125,11 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ currentTime, birthday
               <div className="balloon balloon-blue"></div>
               <div className="balloon balloon-yellow"></div>
               <div className="balloon balloon-pink"></div>
+              <button
+                className="balloon balloon-green balloon-secret"
+                onClick={openSecret}
+                aria-label="A mysterious balloon"
+              ></button>
             </div>
 
             <FloatingBottles />
@@ -131,7 +154,7 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ currentTime, birthday
 
               <div className="birthday-message">
                 <p className="age-text">
-                  The world has been blessed for 21 years , {days} days , {h} hours , {minutes} minutes and {seconds} seconds.
+                  The world has been blessed for 20 years , {days} days , {h} hours , {minutes} minutes and {seconds} seconds.
                 </p>
               </div>
 
@@ -157,7 +180,10 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ currentTime, birthday
                 </button>
               </div>
 
-             
+              <button className="wish-btn" onClick={makeAWish}>
+                ✨ Make a Wish {wishCount > 0 && <span className="wish-count">({wishCount})</span>}
+              </button>
+
               <div className="celebration-emoji">
                 🎈✨🎁🌟🎊🐐 🏅
               </div>
