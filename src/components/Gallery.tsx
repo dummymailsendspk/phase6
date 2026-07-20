@@ -1,25 +1,27 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ThenNowSlider from './ThenNowSlider';
-import img1 from '../assets/1.jpg';
-import img2 from '../assets/2.jpg';
-import img3 from '../assets/3.jpg';
-import img4 from '../assets/4.jpg';
-import img5 from '../assets/5.jpg';
-import img6 from '../assets/6.jpg';
-import img7 from '../assets/7.jpg';
-import img8 from '../assets/8.jpg';
-import img9 from '../assets/9.jpg';
-import img10 from '../assets/10.jpg';
-import img11 from '../assets/11.jpg';
-import img12 from '../assets/12.jpg';
-import img13 from '../assets/13.jpg';
-import img14 from '../assets/14.jpg';
-import img15 from '../assets/15.jpg';
-import img16 from '../assets/16.jpg';
-import img17 from '../assets/17.jpg';
-import img18 from '../assets/18.jpg';
-import mid from '../assets/mid.jpg';
+import img1 from '../assets1/1.jpg';
+import img2 from '../assets1/2.jpg';
+import img3 from '../assets1/3.jpg';
+import img4 from '../assets1/4.jpg';
+import img5 from '../assets1/5.jpg';
+import img6 from '../assets1/6.jpg';
+import img7 from '../assets1/7.jpg';
+import img8 from '../assets1/8.jpg';
+import img9 from '../assets1/9.jpg';
+import img10 from '../assets1/10.jpg';
+import img11 from '../assets1/11.jpg';
+import img12 from '../assets1/12.jpg';
+import img13 from '../assets1/13.jpg';
+import img14 from '../assets1/14.jpg';
+import img15 from '../assets1/15.jpg';
+import img16 from '../assets1/16.jpg';
+import img17 from '../assets1/17.jpg';
+import img18 from '../assets1/18.jpg';
+import mid from '../assets/19.jpg';
 import img20 from '../assets/20.jpg';
+import img21 from '../assets/21.jpg';
+
 const journeyGradients = [
   'linear-gradient(180deg, #ffd89b 0%, #ff9a76 100%)', // sunrise
   'linear-gradient(180deg, #ff9a76 0%, #f8b195 100%)', // morning
@@ -179,8 +181,15 @@ const Gallery: React.FC = () => {
   {
     id: 20,
     image: img20,
-        title: 'A Beautiful 20-Year Story',
+        title: 'A Beautiful 21-Year Story',
     message: 'Two decades of laughter, growth, and love. Every chapter brought its own magic. This is not the end—it’s a new beginning. And your story has only just begun.'
+  }
+,
+    {
+    id: 21,
+    image: img21,
+        title: 'Thanks for Everything and Sorry',
+    message: 'I Wish forever you are having the same smile, Thanks.. GoodBye..!!'
   }
 
 ];
