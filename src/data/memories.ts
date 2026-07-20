@@ -18,7 +18,7 @@ import img17 from '../assets1/17.jpg';
 import img18 from '../assets1/18.jpg';
 import img20 from '../assets1/19.jpg';
 import mid from '../assets1/20.jpg';
-import extra from '../assets1/21.jp';
+import extra from '../assets1/21.jpg';
 
 export interface Memory {
   id: number;
