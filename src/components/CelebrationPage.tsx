@@ -143,7 +143,7 @@ const CelebrationPage: React.FC<CelebrationPageProps> = ({ currentTime, birthday
 
               <div className="birthday-message">
                 <p className="age-text">
-                  The world has been blessed for 20 years , {days} days , {h} hours , {minutes} minutes and {seconds} seconds.
+                  The world has been blessed for 21 years , {days} days , {h} hours , {minutes} minutes and {seconds} seconds.
                 </p>
               </div>
 
